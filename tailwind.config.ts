@@ -68,23 +68,33 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "accordion-down": { from: { height: "0" }, to: { height: "var(--radix-accordion-content-height)" } },
-        "accordion-up":   { from: { height: "var(--radix-accordion-content-height)" }, to: { height: "0" } },
-        shimmer:          { "0%": { backgroundPosition: "-200% 0" }, "100%": { backgroundPosition: "200% 0" } },
-        "pulse-neon":     { "0%,100%": { opacity: "1" }, "50%": { opacity: "0.55" } },
-        float:            { "0%,100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(-6px)" } },
-        "glow-pulse": {
-          "0%,100%": { boxShadow: "0 0 15px rgba(6,182,212,.35), 0 0 40px rgba(124,58,237,.18)" },
-          "50%":      { boxShadow: "0 0 25px rgba(6,182,212,.6),  0 0 60px rgba(124,58,237,.35)" },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        "pulse-neon": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.6" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up":   "accordion-up 0.2s ease-out",
-        shimmer:          "shimmer 3s linear infinite",
-        "pulse-neon":     "pulse-neon 2.5s ease-in-out infinite",
-        float:            "float 3.5s ease-in-out infinite",
-        "glow-pulse":     "glow-pulse 3s ease-in-out infinite",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        shimmer: "shimmer 3s linear infinite",
+        "pulse-neon": "pulse-neon 2s ease-in-out infinite",
+        float: "float 3s ease-in-out infinite",
       },
     },
   },

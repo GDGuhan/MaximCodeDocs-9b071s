@@ -21,9 +21,6 @@ export interface CertificateData {
   signatureLeft: string;
   signatureRight: string;
   msme: string;
-  domain: string;
-  role: string;
-  internship: string;
   design: {
     theme: string;
     logoPosition: string;
@@ -49,7 +46,6 @@ export interface OfferLetterData {
   closing: string;
   signature: string;
   msme: string;
-  refNumber: string;
 }
 
 export type DocumentType = "certificate" | "offer-letter";

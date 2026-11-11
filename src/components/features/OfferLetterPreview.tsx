@@ -12,165 +12,130 @@ export const OfferLetterPreview: React.FC<OfferLetterPreviewProps> = ({ data }) 
   return (
     <div className="flex flex-col items-center gap-4">
       {/* Status Bar */}
-      <div className="no-print flex flex-wrap items-center justify-center gap-3 text-xs">
-        <div className="glass-card rounded-full px-4 py-2 flex items-center gap-2">
-          <span className="text-yellow-400">📋</span>
+      <div className="no-print flex flex-wrap items-center justify-center gap-3 text-sm">
+        <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2">
+          <span className="text-yellow-400 font-bold">📋</span>
           <span className="text-slate-400">Internship Offer Letter</span>
         </div>
-        <div className="glass-card rounded-full px-4 py-2 flex items-center gap-2">
+        <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2">
           <span className="text-green-400">●</span>
           <span className="text-slate-400">Dated: {data.date}</span>
         </div>
-        <div className="glass-card border-green-400/20 rounded-full px-4 py-2 text-green-400">
+        <div className="flex items-center gap-2 bg-white/5 border border-green-400/30 rounded-full px-4 py-2 text-green-400">
           🏢 MSME Aligned
-        </div>
-        <div className="glass-card border-purple-400/20 rounded-full px-4 py-2 text-purple-400 font-mono text-[11px]">
-          {data.refNumber}
         </div>
       </div>
 
       {/* A4 Paper */}
       <div
-        className="offer-letter-paper w-full print-page shadow-2xl overflow-hidden"
-        style={{ maxWidth: "794px", borderRadius: "8px" }}
+        className="offer-letter-paper w-full print-page shadow-2xl rounded-lg overflow-hidden"
+        style={{ maxWidth: "794px", background: "#ffffff", color: "#111111" }}
       >
-        {/* ── HEADER ── */}
+        {/* Header Band */}
         <div
-          className="px-10 pt-7 pb-6"
-          style={{
-            background:
-              "linear-gradient(135deg,#07071c 0%,#0e0a3a 45%,#07071c 100%)",
-            borderBottom: "3px solid",
-            borderImage: "linear-gradient(90deg,#7c3aed,#2563eb,#06b6d4) 1",
-          }}
+          className="px-10 pt-6 pb-5"
+          style={{ background: "linear-gradient(135deg, #0a0a2e 0%, #1a1060 50%, #0a0a2e 100%)" }}
         >
           <div className="flex items-center justify-between">
-            {/* Logo + Company */}
+            {/* Logo + Company Name */}
             <div className="flex items-center gap-4">
-              <div
-                className="rounded-xl overflow-hidden flex-shrink-0"
-                style={{
-                  width: 64,
-                  height: 64,
-                  border: "2px solid rgba(139,92,246,.6)",
-                  boxShadow: "0 0 18px rgba(124,58,237,.5)",
-                }}
-              >
+              <div className="rounded-xl overflow-hidden" style={{ width: 60, height: 60, border: "2px solid rgba(139,92,246,0.6)", boxShadow: "0 0 15px rgba(124,58,237,0.5)" }}>
                 <img src={maximLogo} alt="Maxim Code" className="w-full h-full object-cover" />
               </div>
               <div>
                 <div
-                  className="text-[22px] font-bold tracking-[.18em]"
-                  style={{
-                    background: "linear-gradient(90deg,#c4b5fd,#93c5fd,#06b6d4)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
+                  className="text-xl font-bold tracking-widest"
+                  style={{ background: "linear-gradient(90deg,#c4b5fd,#93c5fd,#06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
                 >
                   MAXIM CODE
                 </div>
-                <div className="text-[10px] text-cyan-400/70 tracking-[.2em] uppercase mt-0.5">
-                  Building Future Innovators
-                </div>
-                <div className="flex items-center gap-3 mt-1.5">
-                  <span className="text-[9px] text-slate-400">🌐 maximcode.in</span>
-                  <span className="text-[9px] text-slate-400">✉ hr@maximcode.in</span>
-                  <span className="text-[9px] text-slate-400">📍 Chennai, Tamil Nadu</span>
-                </div>
+                <div className="text-xs text-cyan-400/70 tracking-widest uppercase mt-0.5">Building Future Innovators</div>
+                <div className="text-[10px] text-slate-400 mt-0.5">maximcode.in · hr@maximcode.in</div>
               </div>
             </div>
 
-            {/* MSME */}
-            <div className="flex flex-col items-center gap-1.5">
-              <div
-                className="w-14 h-14 rounded-full overflow-hidden bg-white p-0.5"
-                style={{
-                  border: "2px solid rgba(234,179,8,.5)",
-                  boxShadow: "0 0 12px rgba(234,179,8,.3)",
-                }}
-              >
-                <img src={msmeEmblem} alt="MSME" className="w-full h-full object-contain" />
+            {/* MSME Badge */}
+            <div className="flex flex-col items-center gap-1">
+              <div className="w-12 h-12 rounded-full overflow-hidden bg-white" style={{ border: "2px solid rgba(234,179,8,0.5)", boxShadow: "0 0 10px rgba(234,179,8,0.3)" }}>
+                <img src={msmeEmblem} alt="MSME" className="w-full h-full object-contain p-0.5" />
               </div>
-              <div className="text-[8px] text-yellow-400/80 text-center tracking-wider font-bold uppercase">
-                MSME<br/>Registered
-              </div>
+              <div className="text-[8px] text-yellow-400/80 text-center tracking-wider font-semibold">MSME REG.</div>
             </div>
           </div>
         </div>
 
-        {/* ── RED ACCENT STRIPE ── */}
-        <div className="h-1" style={{ background: "linear-gradient(90deg,#dc2626,#ef4444,#dc2626)" }} />
-        {/* thin gold stripe */}
-        <div className="h-0.5" style={{ background: "linear-gradient(90deg,rgba(234,179,8,.4),rgba(234,179,8,.7),rgba(234,179,8,.4))" }} />
+        {/* Gradient Separator */}
+        <div className="h-1" style={{ background: "linear-gradient(90deg, #7c3aed, #2563eb, #06b6d4)" }} />
 
-        {/* ── CONTENT ── */}
-        <div className="px-12 py-8 bg-white">
-          {/* Title block */}
-          <div className="text-center mb-7">
-            <div className="inline-block px-8 py-2 mb-3 rounded" style={{ background:"rgba(30,27,75,.06)", border:"1px solid rgba(30,27,75,.12)" }}>
-              <h1 className="text-[17px] font-bold tracking-[.22em] uppercase" style={{ color:"#1e1b4b" }}>
-                {data.title}
-              </h1>
+        {/* Content */}
+        <div className="px-12 py-8">
+          {/* Title */}
+          <div className="text-center mb-6">
+            <h1
+              className="text-2xl font-bold tracking-widest uppercase"
+              style={{ color: "#1e1b4b" }}
+            >
+              {data.title}
+            </h1>
+            <div className="w-20 h-0.5 mx-auto mt-2" style={{ background: "linear-gradient(90deg, #7c3aed, #06b6d4)" }} />
+          </div>
+
+          {/* Date & Reference */}
+          <div className="flex justify-between items-start mb-6 text-sm text-slate-600">
+            <div>
+              <span className="font-semibold text-slate-800">Date: </span>
+              {data.date}
             </div>
-            <div className="w-16 h-0.5 mx-auto" style={{ background:"linear-gradient(90deg,#7c3aed,#06b6d4)" }} />
+            <div>
+              <span className="font-semibold text-slate-800">Ref: </span>
+              MC/HR/OFFER/{new Date().getFullYear()}
+            </div>
           </div>
 
-          {/* Date + Ref */}
-          <div className="flex justify-between items-start mb-5 text-[12px] text-slate-600">
-            <div><span className="font-semibold text-slate-800">Date:</span> {data.date}</div>
-            <div><span className="font-semibold text-slate-800">Ref.:</span> <span className="font-mono text-purple-700">{data.refNumber}</span></div>
-          </div>
-
-          {/* To */}
-          <div className="mb-5">
-            <p className="text-[12px] text-slate-600 font-semibold">To,</p>
-            <p className="text-[17px] font-bold text-slate-900 mt-0.5">{data.recipient}</p>
+          {/* To Section */}
+          <div className="mb-6">
+            <p className="text-sm text-slate-600 font-semibold">To,</p>
+            <p className="text-lg font-bold text-slate-900 mt-0.5">{data.recipient}</p>
           </div>
 
           {/* Subject */}
           <div
-            className="mb-5 px-4 py-3 rounded-lg"
-            style={{ background:"rgba(124,58,237,.05)", borderLeft:"3px solid #7c3aed" }}
+            className="mb-6 px-4 py-3 rounded-lg"
+            style={{ background: "rgba(124,58,237,0.06)", borderLeft: "3px solid #7c3aed" }}
           >
-            <p className="text-[12px] font-bold text-slate-800">
-              Subject: Internship Offer – {data.details.role} ({data.details.domain})
+            <p className="text-sm font-bold text-slate-800">
+              Subject: Internship Offer Letter – {data.details.role} ({data.details.domain})
             </p>
           </div>
 
           {/* Dear */}
-          <p className="text-[12px] text-slate-700 mb-4">
-            Dear <strong>{data.recipient.split(" ")[0]}</strong>,
-          </p>
+          <p className="text-sm text-slate-700 mb-4">Dear <strong>{data.recipient.split(" ")[0]}</strong>,</p>
 
           {/* Opening */}
           <p
-            className="text-[12px] text-slate-700 leading-[1.85] mb-6"
+            className="text-sm text-slate-700 leading-relaxed mb-5"
             dangerouslySetInnerHTML={{ __html: data.opening }}
           />
 
-          {/* Details Table */}
-          <div className="mb-6 rounded-xl overflow-hidden" style={{ border:"1px solid #e2e8f0" }}>
-            <div
-              className="px-4 py-2 text-[10px] font-bold text-white tracking-[.18em] uppercase"
-              style={{ background:"linear-gradient(90deg,#1e1b4b,#2563eb)" }}
-            >
+          {/* Internship Details Table */}
+          <div className="mb-6 rounded-xl overflow-hidden" style={{ border: "1px solid #e2e8f0" }}>
+            <div className="px-4 py-2 text-xs font-bold text-white tracking-widest uppercase" style={{ background: "linear-gradient(90deg, #1e1b4b, #2563eb)" }}>
               Internship Details
             </div>
-            <table className="w-full text-[12px]">
+            <table className="w-full text-sm">
               <tbody>
                 {[
-                  { label:"Role / Designation",   value: data.details.role },
-                  { label:"Domain / Department",   value: data.details.domain },
-                  { label:"Internship Duration",   value: data.details.duration },
-                  { label:"Work Mode",             value: data.details.mode },
-                  { label:"Stipend",               value: "Certificate-based (Unpaid)" },
-                  { label:"Reporting To",          value: "Program Director, Maxim Code" },
-                  { label:"Organization",          value: "Maxim Code, Chennai, Tamil Nadu" },
+                  { label: "Role / Designation", value: data.details.role },
+                  { label: "Domain", value: data.details.domain },
+                  { label: "Duration", value: data.details.duration },
+                  { label: "Work Mode", value: data.details.mode },
+                  { label: "Stipend", value: "Certificate-based (Unpaid)" },
+                  { label: "Reporting To", value: "Program Director, Maxim Code" },
                 ].map(({ label, value }, i) => (
                   <tr key={label} style={{ background: i % 2 === 0 ? "#f8fafc" : "#ffffff" }}>
-                    <td className="px-4 py-2 font-semibold text-slate-700 w-52">{label}</td>
-                    <td className="px-3 py-2 text-slate-400 w-4">:</td>
-                    <td className="px-4 py-2 font-medium text-slate-900">{value}</td>
+                    <td className="px-4 py-2.5 font-semibold text-slate-700 w-48">{label}</td>
+                    <td className="px-4 py-2.5 text-slate-500">:</td>
+                    <td className="px-4 py-2.5 font-medium text-slate-900">{value}</td>
                   </tr>
                 ))}
               </tbody>
@@ -179,20 +144,14 @@ export const OfferLetterPreview: React.FC<OfferLetterPreviewProps> = ({ data }) 
 
           {/* Responsibilities */}
           <div className="mb-6">
-            <h3 className="text-[12px] font-bold text-slate-800 mb-3 flex items-center gap-2">
-              <span
-                className="w-4 h-4 rounded-full inline-flex items-center justify-center text-white text-[8px] font-bold flex-shrink-0"
-                style={{ background:"#7c3aed" }}
-              >✦</span>
+            <h3 className="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2">
+              <span className="w-4 h-4 rounded-full inline-flex items-center justify-center text-white text-[9px] font-bold" style={{ background: "#7c3aed" }}>✦</span>
               Key Responsibilities
             </h3>
-            <ul className="space-y-1.5">
+            <ul className="space-y-2">
               {data.responsibilities.map((r, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-[12px] text-slate-700 leading-[1.7]">
-                  <span
-                    className="mt-[6px] flex-shrink-0 w-1.5 h-1.5 rounded-full"
-                    style={{ background:"linear-gradient(135deg,#7c3aed,#06b6d4)" }}
-                  />
+                <li key={i} className="flex items-start gap-2.5 text-sm text-slate-700">
+                  <span className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full" style={{ background: "linear-gradient(135deg, #7c3aed, #06b6d4)", marginTop: "6px" }} />
                   {r}
                 </li>
               ))}
@@ -200,89 +159,70 @@ export const OfferLetterPreview: React.FC<OfferLetterPreviewProps> = ({ data }) 
           </div>
 
           {/* Benefits */}
-          <div
-            className="mb-6 p-5 rounded-xl"
-            style={{
-              background:"linear-gradient(135deg,rgba(124,58,237,.04),rgba(6,182,212,.04))",
-              border:"1px solid rgba(124,58,237,.15)",
-            }}
-          >
-            <h3 className="text-[12px] font-bold mb-3" style={{ color:"#1e1b4b" }}>
-              What You Will Gain at Maxim Code
+          <div className="mb-6 p-4 rounded-xl" style={{ background: "linear-gradient(135deg, rgba(124,58,237,0.05), rgba(6,182,212,0.05))", border: "1px solid rgba(124,58,237,0.15)" }}>
+            <h3 className="text-sm font-bold mb-3" style={{ color: "#1e1b4b" }}>
+              What You Will Gain
             </h3>
-            <div className="grid grid-cols-2 gap-1.5">
+            <div className="grid grid-cols-2 gap-2">
               {data.benefits.map((b, i) => (
-                <div key={i} className="flex items-start gap-2 text-[11.5px] text-slate-700 leading-[1.6]">
-                  <span className="text-purple-600 font-bold flex-shrink-0 mt-0.5">✓</span>
-                  {b}
+                <div key={i} className="flex items-start gap-2 text-sm text-slate-700">
+                  <span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">✓</span>
+                  <span>{b}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Closing */}
-          <p
-            className="text-[12px] text-slate-700 leading-[1.85] mb-8"
-            dangerouslySetInnerHTML={{ __html: data.closing }}
-          />
+          <p className="text-sm text-slate-700 leading-relaxed mb-6">{data.closing}</p>
 
-          {/* Signatures */}
-          <div className="flex justify-between items-end mt-6 mb-4">
-            {/* Accepted by */}
-            <div className="text-[12px] text-slate-600">
-              <p className="font-semibold text-slate-800 mb-5">Accepted By:</p>
-              <div className="w-36 border-b border-slate-400 mb-1" />
-              <p className="text-slate-600 font-medium">{data.recipient}</p>
-              <p className="text-slate-400 text-[11px]">Date: ___________</p>
+          {/* Signature */}
+          <div className="flex justify-between items-end mt-8">
+            {/* Left: HR Team */}
+            <div className="text-sm text-slate-600">
+              <p className="font-semibold text-slate-800">Accepted By:</p>
+              <div className="mt-6 w-32 border-b border-slate-400" />
+              <p className="mt-1 text-xs text-slate-500">{data.recipient}</p>
+              <p className="text-xs text-slate-400">Date: ___________</p>
             </div>
 
-            {/* CEO signature */}
+            {/* Right: CEO Signature */}
             <div className="text-right">
               <div className="flex justify-end mb-1">
-                <div className="w-36 h-16 overflow-hidden rounded">
+                <div className="w-32 h-14 overflow-hidden">
                   <img
                     src={signaturesImg}
                     alt="CEO Signature"
                     className="w-full h-full object-cover"
-                    style={{ objectPosition:"5% 30%" }}
+                    style={{ objectPosition: "0% 30%" }}
                   />
                 </div>
               </div>
-              <div className="h-px w-44 ml-auto mb-1" style={{ background:"linear-gradient(90deg,transparent,#7c3aed)" }} />
-              <p className="text-[13px] font-bold text-slate-900">B. Guhan</p>
-              <p className="text-[11px] text-slate-600">CEO &amp; Founder</p>
-              <p className="text-[11px] font-semibold text-purple-700">Maxim Code</p>
+              <div className="h-px w-40 ml-auto mb-1" style={{ background: "linear-gradient(90deg, transparent, #7c3aed)" }} />
+              <p className="text-sm font-bold text-slate-900">B. Guhan</p>
+              <p className="text-xs text-slate-600">CEO & Founder</p>
+              <p className="text-xs font-semibold" style={{ color: "#7c3aed" }}>Maxim Code</p>
             </div>
-          </div>
-
-          {/* Seal / official note */}
-          <div
-            className="text-center py-2 rounded-lg text-[10px] text-slate-500 italic"
-            style={{ borderTop:"1px dashed #e2e8f0" }}
-          >
-            This is a digitally generated official document issued by Maxim Code · For verification contact hr@maximcode.in
           </div>
         </div>
 
-        {/* ── FOOTER ── */}
+        {/* Footer */}
         <div
-          className="px-10 py-4"
-          style={{ background:"linear-gradient(135deg,#07071c 0%,#0e0a3a 100%)" }}
+          className="px-10 py-4 mt-2"
+          style={{ background: "linear-gradient(135deg, #0a0a2e 0%, #1a1060 100%)" }}
         >
           <div className="flex items-center justify-between gap-4">
-            <div className="text-[9px] text-slate-400 leading-relaxed max-w-xs">{data.msme}</div>
-            <div className="text-right flex-shrink-0">
+            <div className="text-[9px] text-slate-400 leading-tight max-w-xs">
+              {data.msme}
+            </div>
+            <div className="text-right">
               <div
-                className="text-[11px] font-bold tracking-[.2em]"
-                style={{
-                  background:"linear-gradient(90deg,#c4b5fd,#06b6d4)",
-                  WebkitBackgroundClip:"text",
-                  WebkitTextFillColor:"transparent",
-                }}
+                className="text-[10px] font-bold tracking-widest"
+                style={{ background: "linear-gradient(90deg,#c4b5fd,#06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
               >
                 MAXIM CODE
               </div>
-              <div className="text-[9px] text-slate-500">www.maximcode.in</div>
+              <div className="text-[8px] text-slate-500">maximcode.in</div>
               <div className="text-[8px] text-slate-600">© {new Date().getFullYear()} All Rights Reserved</div>
             </div>
           </div>
